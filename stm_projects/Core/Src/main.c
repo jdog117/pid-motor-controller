@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "MC3630.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
