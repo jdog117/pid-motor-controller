@@ -104,4 +104,4 @@ RCC.SYSCLKFreq_VALUE=32000
 RCC.SYSCLKSource=RCC_SYSCLKSOURCE_LSI
 RCC.USART1Freq_Value=32000
 board=custom
-isbadioc=false
+isbadioc=true
