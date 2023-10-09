@@ -18,3 +18,4 @@
 ## Improvements
 - Mounting holes
 - Status LED
+- Design board with score along JTAG connector for snapping off when finished programing
