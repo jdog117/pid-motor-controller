@@ -7,15 +7,13 @@
 
 //#ifndef INC_MC3630_H_
 //#define INC_MC3630_H_
-
-
-
-
-
 #ifndef MC3630_I2C_DRIVER_H
 #define MC3630_I2C_DRIVER_H
 
 #include "stm32c0xx_hal.h" //HAL functions needed for this driver
+
+
+
 
 /*
  * After startup, the first first transaction must be to select the interface type, I2C
@@ -69,7 +67,16 @@ uint8_t MC3630_Initialize(MC3630 *dev, I2C_TypeDef *i2cHandle); //passing the st
 
 HAL_StatusTypeDef MC3630_Read_Acc(MC3630 *dev);
 
+/*
+ * REGISTER ACCESS
+ * */
 
+// reg is the register, *data is the address where stored
+HAL_StatusTypeDef MC3630_ReadRegiser(MC3630 *dev, uint8_t reg, uint8_t *data); // 1 byte
+HAL_StatusTypeDef MC3630_ReadRegisers(MC3630 *dev, uint8_t reg, uint8_t *data, uint8_t length); //reads from multiple registers (multiple byte)
+
+// *data is the byte to be written
+HAL_StatusTypeDef MC3630_WriteRegister(MC3630 *dev, uint8_t reg, uint8_t *data);
 
 
 
