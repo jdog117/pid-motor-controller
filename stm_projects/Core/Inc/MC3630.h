@@ -23,14 +23,19 @@
  * Write to 0x1 into register 0x0D[6] for I2C (p.270)
  * The I2C device address depends upon the state of pin DOUT_A1 during power-up (GND for I2C which means 7-bit device id is Ox4C (0b1001100)) (p.27)
  */
+
 #define MC3630_I2C_ADDR (Ox4C << 1) //this 8 bit packet is shifted to the left by 1 bit because the the MC3630 uses the 8th bit for read or write, address is only 7bits
 
 /*
-*   p.34 for register map
-*/
+ *   p.34 for register map
+ */
+
 #define MC3630_CHIP_ID 0x71 //default value upon power or reset (POR)
 
-//register addresses
+/*
+ * register addresses
+ */
+
 #define MC3630_REG_XOUT_LSB 0x02
 #define MC3630_REG_XOUT_MSB 0x03
 #define MC3630_REG_YOUT_LSB 0x04
@@ -40,7 +45,9 @@
 
 
 typedef struct {
-	I2C_HandleTypeDef *i2cHandle;
+
+	//I2C_TypeDef contains configuration information for a specified I2C
+	I2C_TypeDef *i2cHandle;
 
 	//acceleration data
 	float acc_mps2[1]; //x, y, or z depending on orientation
@@ -51,13 +58,15 @@ typedef struct {
  * INITIALIZATION
  * returns a uint8_t 0-255
  */
-uint8_t MC3630_Initialize(MC3630 *dev, I2C_HandleTypeDef *i2cHandle); //passing the struct as a pointer and the I2C handle
+
+uint8_t MC3630_Initialize(MC3630 *dev, I2C_TypeDef *i2cHandle); //passing the struct as a pointer and the I2C handle
 
 
 /*
  * RETRIEVE DATA
  * return as HAL_StatusTypeDef
  */
+
 HAL_StatusTypeDef MC3630_Read_Acc(MC3630 *dev);
 
 
