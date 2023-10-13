@@ -4,9 +4,6 @@
  *  Created on: Oct 8, 2023
  *      Author: jspca
  */
-
-//#ifndef INC_MC3630_H_
-//#define INC_MC3630_H_
 #ifndef MC3630_I2C_DRIVER_H
 #define MC3630_I2C_DRIVER_H
 
@@ -27,8 +24,8 @@
 /*
  *   p.34 for register map
  */
-
-#define MC3630_CHIP_ID 0x71 //default value upon power or reset (POR)
+#define MC3630_DEVID_AD 0x18 //device id register address
+#define MC3630_DEV_ID 0x71   //default value in register (POR)
 
 /*
  * register addresses
@@ -42,13 +39,15 @@
 #define MC3630_REG_ZOUT_MSB 0x07
 
 
+//mc3630 struct
 typedef struct {
 
 	//I2C_TypeDef contains configuration information for a specified I2C
-	I2C_TypeDef *i2cHandle;
+	I2C_HandleTypeDef *i2cHandle;
 
 	//acceleration data
-	float acc_mps2[1]; //x, y, or z depending on orientation
+	/* CHANGE */
+	float acc_mps2[2]; //x, y, or z depending on orientation
 } MC3630;
 
 
@@ -57,7 +56,7 @@ typedef struct {
  * returns a uint8_t 0-255
  */
 
-uint8_t MC3630_Initialize(MC3630 *dev, I2C_TypeDef *i2cHandle); //passing the struct as a pointer and the I2C handle
+uint8_t MC3630_Initialize(MC3630 *dev, I2C_HandleTypeDef *i2cHandle); //passing the struct as a pointer and the I2C handle
 
 
 /*

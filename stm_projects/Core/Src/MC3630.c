@@ -6,9 +6,37 @@
  *
  *      MC3630 Accelerometer I2C driver
  */
-
 #include "MC3630.h"
 
+
+
+uint8_t MC3630_Initialize(MC3630 *dev, I2C_HandleTypeDef *i2cHandle) {
+
+	/* Set struct parameters */
+	dev->i2cHandle   = i2cHandle;
+	dev->acc_mps2[0] = 0.0f;
+	dev->acc_mps2[1] = 0.0f;
+	dev->acc_mps2[2] = 0.0f;
+
+	//number of transaction errors
+	uint8_t errNum = 0;
+	HAL_StatusTypeDef status;
+
+	uint8_t regData;
+
+	/* Check device ID */
+	status = MC3630_ReadRegiser(dev, MC3630_DEVID_AD, &regData); //store contents of register in regData
+	errNum += (status != HAL_OK); //add 1 to errors if the status is not ok
+
+	if (regData != MC3630_DEV_ID) {
+		return 255; //can't find device
+	}
+
+}
+
+/*
+ * REGISTER FUCNTIONS
+ */
 
 HAL_StatusTypeDef MC3630_ReadRegiser(MC3630 *dev, uint8_t reg, uint8_t *data) {
 	//DevAddress is the device address shifted by 1
