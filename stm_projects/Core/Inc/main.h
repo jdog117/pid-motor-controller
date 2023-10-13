@@ -59,10 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define MOTOR_Pin GPIO_PIN_5
 #define MOTOR_GPIO_Port GPIOA
-#define ACC_I2C_CLK_Pin GPIO_PIN_6
-#define ACC_I2C_CLK_GPIO_Port GPIOA
-#define ACC_I2C_SDA_Pin GPIO_PIN_7
-#define ACC_I2C_SDA_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
