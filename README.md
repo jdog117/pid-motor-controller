@@ -8,7 +8,7 @@ Custom control board for reaction based flywheel controlled by PID loop function
 This small PCB runs a driver with PID loop controller for signaling a FOC controller. The FOC controller powers a brushless motor which, for this project, will mount a flywheel for reaction based stabilization. The board is programmable through the JTAG connector.
 
 # Hardware
-PCB Specs
+PCB uses the STM32's internal oscilator 2 layer board design to keep manufactoing costs low
 - STM32 Microcontroller (STM32C011F6U6TR)
 - Accelerometer (MC63630)
 - JTAG for serial wire debug (TC2030-IDC)
