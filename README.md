@@ -1,4 +1,4 @@
-<h1 align="center">Flywheel Controller</h1>
+<h1 align="center">Reaction Wheel Controller</h1>
 
 ![Banner](docs/img/pidsideview.png)
 
