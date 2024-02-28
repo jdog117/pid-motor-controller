@@ -2,7 +2,7 @@
 
 ![Banner](docs/img/pidsideview.png)
 
-Custom control board for reaction based flywheel controlled by PID loop function
+Custom control board for blcd reaction based flywheel with PID firmware
 
 # Overview
 This small PCB runs a driver with PID loop controller for signaling a FOC controller. The FOC controller powers a brushless motor which, for this project, will mount a flywheel for reaction based stabilization. The board is programmable through the JTAG connector.
