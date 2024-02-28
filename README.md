@@ -1,6 +1,6 @@
 <h1 align="center">Reaction Wheel Controller</h1>
 
-![Banner](docs/img/pidsideview.png)
+<img src="docs/img/pidsideview.png" alt="Banner" width="700">
 
 Custom control board for blcd reaction based flywheel with PID firmware
 
